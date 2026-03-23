@@ -892,6 +892,7 @@ function parseAndRender(text) {
   if (qMatch) document.getElementById('docTitle').textContent = qMatch[1].trim();
 
   let html = text
+    .replace(/^[=#]+\s*/gm, '')
     .replace(/^#{1}\s+(.+)$/gm, '<h1>$1</h1>')
     .replace(/^#{2}\s+(.+)$/gm, '<h2>$1</h2>')
     .replace(/^#{3}\s+(.+)$/gm, '<h3>$1</h3>')
@@ -911,6 +912,7 @@ function parseAndRender(text) {
   html = html.replace(/^-\s+(?!PURSUE|PASS|PROCEED)(.+)$/gm, '<li>$1</li>');
   html = html.replace(/(<li>[\s\S]*?<\/li>)(\s*<li>[\s\S]*?<\/li>)*/g, m => `<ul>${m}</ul>`);
   html = html.replace(/<\/ul>\s*<ul>/g, '');
+  html = html.replace(/<li>\s*<\/li>/g, '');
 
   // Verdict row wrapper
   html = html.replace(/(<div class="verdict-chip[^"]*"[^>]*>[\s\S]*?<\/div>\s*)+/g,
