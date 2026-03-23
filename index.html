@@ -892,7 +892,7 @@ function parseAndRender(text) {
   if (qMatch) document.getElementById('docTitle').textContent = qMatch[1].trim();
 
   let html = text
-    .replace(/^[=#]+\s*/gm, '')
+    .replace(/^[=\s#]+/gm, '')
     .replace(/^#{1}\s+(.+)$/gm, '<h1>$1</h1>')
     .replace(/^#{2}\s+(.+)$/gm, '<h2>$1</h2>')
     .replace(/^#{3}\s+(.+)$/gm, '<h3>$1</h3>')
