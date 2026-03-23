@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rex Moore — Executive Council</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a2f5e;
+  --navy-dark: #0f1d3a;
+  --navy-mid: #243670;
+  --gold: #c9920a;
+  --gold-bright: #e8aa12;
+  --gold-light: #f5c842;
+  --gold-pale: #fdf3d0;
+  --white: #ffffff;
+  --bg: #f2f4f8;
+  --bg2: #e8ecf4;
+  --surface: #ffffff;
+  --border: #d0d6e8;
+  --border-navy: #2a3f7a;
+  --text: #0f1d3a;
+  --text-muted: #4a5a7a;
+  --text-dim: #8a96b0;
+  --green: #1a6b3a;
+  --amber: #8b5a00;
+  --red: #b01c1c;
+  --pursue-bg: #e8f5ee;
+  --caution-bg: #fdf3e0;
+  --pass-bg: #fce8e8;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* TOP NAV */
+.topbar {
+  background: var(--navy-dark);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--gold);
+}
+
+.topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-burst {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topbar-wordmark {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  line-height: 1;
+}
+
+.topbar-wordmark span {
+  color: var(--gold-bright);
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border-navy);
+  margin: 0 16px;
+}
+
+.topbar-product {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.topbar-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  padding: 56px 40px 52px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+}
+
+/* Sunburst decoration */
+.hero-burst {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 340px;
+  height: 340px;
+  opacity: 0.06;
+}
+
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--gold-bright);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 7vw, 80px);
+  letter-spacing: 0.04em;
+  color: var(--white);
+  line-height: 0.95;
+  margin-bottom: 8px;
+}
+
+.hero-title-gold {
+  color: var(--gold-bright);
+  display: block;
+}
+
+.hero-since {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  margin-top: 4px;
+}
+
+.hero-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: #8fa0c0;
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+/* COUNCIL CARDS */
+.council-section {
+  background: var(--navy-dark);
+  padding: 28px 40px;
+  border-bottom: 1px solid var(--border-navy);
+}
+
+.council-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.council-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 2px solid var(--gold);
+  padding: 18px 18px 16px;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.council-card.active-card {
+  background: rgba(201,146,10,0.12);
+  border-color: var(--gold-bright);
+}
+
+.card-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: rgba(255,255,255,0.1);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.card-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.card-mandate {
+  font-size: 11px;
+  font-weight: 300;
+  color: #6a7a9a;
+  line-height: 1.4;
+}
+
+.card-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  transition: all 0.3s;
+}
+
+.card-dot.thinking {
+  background: var(--gold-bright);
+  animation: pulse 0.8s ease-in-out infinite;
+}
+
+.card-dot.done {
+  background: #2ecc71;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* MAIN */
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+}
+
+/* INPUT */
+.input-section { margin-bottom: 40px; }
+
+.input-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.input-row {
+  display: flex;
+  border: 2px solid var(--navy);
+  background: var(--surface);
+}
+
+textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-right: 2px solid var(--navy);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.6;
+  padding: 20px 24px;
+  resize: none;
+  min-height: 96px;
+  outline: none;
+}
+
+textarea::placeholder { color: var(--text-dim); }
+textarea:focus { background: #fafbfd; }
+
+.submit-btn {
+  background: var(--navy);
+  border: none;
+  color: var(--white);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  padding: 0 32px;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.submit-btn:hover { background: var(--navy-mid); }
+.submit-btn:disabled { background: var(--text-dim); cursor: not-allowed; }
+
+.submit-btn .btn-gold {
+  color: var(--gold-bright);
+}
+
+.btn-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+}
+
+.input-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 10px;
+  letter-spacing: 0.04em;
+}
+
+/* STATUS */
+.status-bar {
+  display: none;
+  background: var(--navy);
+  padding: 16px 24px;
+  margin-bottom: 40px;
+  align-items: center;
+  gap: 16px;
+  border-left: 4px solid var(--gold);
+}
+
+.status-bar.visible { display: flex; }
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold-bright);
+  animation: pulse 0.8s infinite;
+  flex-shrink: 0;
+}
+
+.status-msg {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #8fa0c0;
+  letter-spacing: 0.06em;
+  flex: 1;
+}
+
+.status-timer {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--gold-bright);
+  letter-spacing: 0.06em;
+}
+
+/* BRIEF */
+.brief-wrap {
+  display: none;
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.brief-wrap.visible { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.brief-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.brief-ready-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--green);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brief-ready-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  display: inline-block;
+}
+
+.brief-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn:hover { border-color: var(--navy); color: var(--navy); }
+
+.action-btn.primary {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: white;
+}
+
+.action-btn.primary:hover { background: var(--gold); border-color: var(--gold); color: var(--navy-dark); }
+
+/* Brief document */
+.brief-doc {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(26,47,94,0.08);
+}
+
+.doc-header {
+  background: var(--navy);
+  padding: 36px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.doc-header-stripe {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 60%, transparent 100%);
+}
+
+.doc-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.doc-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.doc-meta {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.doc-meta-item { display: flex; flex-direction: column; gap: 4px; }
+
+.doc-meta-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+}
+
+.doc-meta-value {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+}
+
+/* Body */
+.doc-body {
+  padding: 48px 48px;
+}
+
+.doc-body h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  color: var(--navy);
+  margin: 40px 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--navy);
+}
+
+.doc-body h1:first-child { margin-top: 0; }
+
+.doc-body h2 {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin: 36px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.doc-body h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.doc-body h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin: 18px 0 8px;
+}
+
+.doc-body p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.doc-body ul {
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+.doc-body ul li {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text);
+  padding: 10px 0 10px 22px;
+  border-bottom: 1px solid var(--bg2);
+  position: relative;
+  line-height: 1.6;
+}
+
+.doc-body ul li:last-child { border-bottom: none; }
+
+.doc-body ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 10px;
+  top: 13px;
+}
+
+.doc-body strong { font-weight: 500; color: var(--navy-dark); }
+
+/* Verdict */
+.verdict-row {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.verdict-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border: 1px solid;
+}
+
+.v-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+
+.v-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  opacity: 0.75;
+}
+
+.v-pursue { background: var(--pursue-bg); border-color: #1a6b3a; color: var(--green); }
+.v-caution { background: var(--caution-bg); border-color: #8b5a00; color: var(--amber); }
+.v-pass { background: var(--pass-bg); border-color: var(--red); color: var(--red); }
+
+/* Recommendation box */
+.rec-box {
+  background: var(--navy);
+  padding: 28px 32px;
+  margin-top: 12px;
+  border-left: 4px solid var(--gold-bright);
+}
+
+.rec-box-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.rec-box p {
+  color: #a0b0cc !important;
+  font-size: 14px !important;
+  line-height: 1.8 !important;
+  margin-bottom: 0 !important;
+}
+
+.rec-box strong { color: var(--white) !important; }
+
+/* Doc footer */
+.doc-footer {
+  padding: 18px 48px;
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.doc-footer-left {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+.doc-footer-right {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+@media print {
+  .topbar, .hero, .council-section, .input-section,
+  .status-bar, .brief-topbar { display: none !important; }
+  body { background: white; }
+  .brief-doc { box-shadow: none; border: none; }
+}
+
+@media (max-width: 680px) {
+  .council-inner { grid-template-columns: repeat(2, 1fr); }
+  .topbar, .hero, .main { padding-left: 20px; padding-right: 20px; }
+  .council-section { padding: 20px; }
+  .doc-header, .doc-body, .doc-footer { padding-left: 24px; padding-right: 24px; }
+  .doc-meta { gap: 20px; }
+  .input-row { flex-direction: column; }
+  .submit-btn { min-height: 56px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <polygon points="14,2 16,11 24,8 18,15 26,18 17,18 14,26 11,18 2,18 10,15 4,8 12,11" fill="#c9920a" opacity="0.9"/>
+    </svg>
+    <span class="topbar-wordmark">REX<span>MOORE</span></span>
+    <div class="topbar-divider"></div>
+    <span class="topbar-product">Executive Council</span>
+  </div>
+  <span class="topbar-tag">AI-Powered · v1.1 · Est. 1922</span>
+</nav>
+
+<div class="hero">
+  <svg class="hero-burst" viewBox="0 0 340 340" fill="none">
+    <g transform="translate(170,170)">
+      <polygon points="0,-160 8,-80 0,-20 -8,-80" fill="white"/>
+      <polygon points="0,-160 8,-80 0,-20 -8,-80" fill="white" transform="rotate(30)"/>
+      <polygon points="0,-160 8,-80 0,-20 -8,-80" fill="white" transform="rotate(60)"/>
+      <polygon points="0,-160 8,-80 0,-20 -8,-80" fill="white" transform="rotate(90)"/>
+      <polygon points="0,-160 8,-80 0,-20 -8,-80" fill="white" transform="rotate(120)"/>
+      <polygon points="0,-160 8,-80 0,-20 -8,-80" fill="white" transform="rotate(150)"/>
+      <polygon points="0,-160 8,-80 0,-20 -8,-80" fill="white" transform="rotate(180)"/>
+      <polygon points="0,-160 8,-80 0,-20 -8,-80" fill="white" transform="rotate(210)"/>
+      <polygon points="0,-160 8,-80 0,-20 -8,-80" fill="white" transform="rotate(240)"/>
+      <polygon points="0,-160 8,-80 0,-20 -8,-80" fill="white" transform="rotate(270)"/>
+      <polygon points="0,-160 8,-80 0,-20 -8,-80" fill="white" transform="rotate(300)"/>
+      <polygon points="0,-160 8,-80 0,-20 -8,-80" fill="white" transform="rotate(330)"/>
+    </g>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Strategic Intelligence System</div>
+    <h1 class="hero-title">Council<br><span class="hero-title-gold">of Agents</span></h1>
+    <div class="hero-since">Since 1922 · Now AI-Powered</div>
+    <p class="hero-sub">Four specialized AI advisors — Finance, Operations, Safety, and Strategy — convene instantly on any business question and deliver a synthesized executive recommendation.</p>
+  </div>
+</div>
+
+<div class="council-section">
+  <div class="council-inner">
+    <div class="council-card" id="card-cfo">
+      <div class="card-dot" id="dot-cfo"></div>
+      <div class="card-num">01</div>
+      <div class="card-role">Finance</div>
+      <div class="card-title">CFO Agent</div>
+      <div class="card-mandate">Margins, cash flow, bonding, bid risk</div>
+    </div>
+    <div class="council-card" id="card-coo">
+      <div class="card-dot" id="dot-coo"></div>
+      <div class="card-num">02</div>
+      <div class="card-role">Operations</div>
+      <div class="card-title">COO Agent</div>
+      <div class="card-mandate">Lean alignment, crew capacity, scheduling</div>
+    </div>
+    <div class="council-card" id="card-safety">
+      <div class="card-dot" id="dot-safety"></div>
+      <div class="card-num">03</div>
+      <div class="card-role">Safety</div>
+      <div class="card-title">Safety Director</div>
+      <div class="card-mandate">OSHA exposure, JHA, certifications</div>
+    </div>
+    <div class="council-card" id="card-strategy">
+      <div class="card-dot" id="dot-strategy"></div>
+      <div class="card-num">04</div>
+      <div class="card-role">Strategy</div>
+      <div class="card-title">Chief Strategy Officer</div>
+      <div class="card-mandate">Market position, growth fit, competitive edge</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="input-section">
+    <label class="input-label" for="question">Put a question to the council</label>
+    <div class="input-row">
+      <textarea id="question" placeholder="e.g. Should we pursue the $4M data center project in Reno, Nevada?" rows="3"></textarea>
+      <button class="submit-btn" id="submitBtn" onclick="submitQuestion()">
+        <span>CONVENE</span>
+        <span class="btn-gold">↗</span>
+        <span class="btn-hint">⌘ + Enter</span>
+      </button>
+    </div>
+    <div class="input-hint">Council analysis takes 35–50 seconds. All four advisors deliberate simultaneously.</div>
+  </div>
+
+  <div class="status-bar" id="statusBar">
+    <div class="status-dot"></div>
+    <div class="status-msg" id="statusMsg">Convening the council...</div>
+    <div class="status-timer" id="statusTimer">0:00</div>
+  </div>
+
+  <div class="brief-wrap" id="briefWrap">
+    <div class="brief-topbar">
+      <div class="brief-ready-label">Executive Brief Ready</div>
+      <div class="brief-actions">
+        <button class="action-btn" onclick="resetForm()">← New Question</button>
+        <button class="action-btn primary" onclick="window.print()">Print / Save PDF</button>
+      </div>
+    </div>
+
+    <div class="brief-doc">
+      <div class="doc-header">
+        <div class="doc-eyebrow">Rex Moore Group · Executive Council Brief</div>
+        <div class="doc-title" id="docTitle">Strategic Analysis</div>
+        <div class="doc-meta">
+          <div class="doc-meta-item">
+            <span class="doc-meta-label">Date</span>
+            <span class="doc-meta-value" id="docDate">—</span>
+          </div>
+          <div class="doc-meta-item">
+            <span class="doc-meta-label">Council</span>
+            <span class="doc-meta-value">CFO · COO · Safety · Strategy</span>
+          </div>
+          <div class="doc-meta-item">
+            <span class="doc-meta-label">Classification</span>
+            <span class="doc-meta-value">Executive Use Only</span>
+          </div>
+        </div>
+        <div class="doc-header-stripe"></div>
+      </div>
+
+      <div class="doc-body" id="docBody"></div>
+
+      <div class="doc-footer">
+        <span class="doc-footer-left">Rex Moore Group, Inc. · 6001 Outfall Circle, Sacramento CA 95828 · (800) 266-1922</span>
+        <span class="doc-footer-right" id="docFooterTime"></span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const WEBHOOK = 'https://adminoverhaul.app.n8n.cloud/webhook/rex-moore-council';
+const agents = ['cfo','coo','safety','strategy'];
+let timerInterval, statusInterval, timerSec = 0;
+
+const statusMessages = [
+  'Convening the council...',
+  'CFO analyzing financial exposure...',
+  'COO reviewing operational capacity...',
+  'Safety Director assessing risk profile...',
+  'Chief Strategy Officer evaluating market fit...',
+  'Synthesizing council perspectives...',
+  'Preparing executive brief...'
+];
+
+function startTimer() {
+  timerSec = 0;
+  timerInterval = setInterval(() => {
+    timerSec++;
+    const m = Math.floor(timerSec/60), s = timerSec%60;
+    document.getElementById('statusTimer').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+  }, 1000);
+}
+
+function startAgentAnimation() {
+  let msgIdx = 0, agentIdx = 0;
+  document.getElementById('statusMsg').textContent = statusMessages[0];
+  statusInterval = setInterval(() => {
+    msgIdx++;
+    if (msgIdx < statusMessages.length)
+      document.getElementById('statusMsg').textContent = statusMessages[msgIdx];
+    if (agentIdx < agents.length) {
+      document.getElementById('dot-' + agents[agentIdx]).classList.add('thinking');
+      document.getElementById('card-' + agents[agentIdx]).classList.add('active-card');
+      agentIdx++;
+    }
+  }, 7000);
+}
+
+function stopAnimation() {
+  clearInterval(timerInterval);
+  clearInterval(statusInterval);
+  agents.forEach(a => {
+    const d = document.getElementById('dot-' + a);
+    d.classList.remove('thinking');
+    d.classList.add('done');
+  });
+}
+
+function parseAndRender(text) {
+  const qMatch = text.match(/QUESTION[:\s]+\*?\*?(.+?)\*?\*?(?:\n|$)/i);
+  if (qMatch) document.getElementById('docTitle').textContent = qMatch[1].trim();
+
+  let html = text
+    .replace(/^#{1}\s+(.+)$/gm, '<h1>$1</h1>')
+    .replace(/^#{2}\s+(.+)$/gm, '<h2>$1</h2>')
+    .replace(/^#{3}\s+(.+)$/gm, '<h3>$1</h3>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+  // Verdict chips
+  html = html.replace(/[-•·*]\s*PURSUE[:\s]*(\d+[^<\n]*)?/gi, (m,r) =>
+    `<div class="verdict-chip v-pursue"><span class="v-label">PURSUE</span><span class="v-count">${(r||'').trim()}</span></div>`);
+  html = html.replace(/[-•·*]\s*PASS[:\s]*(\d+[^<\n]*)?/gi, (m,r) =>
+    `<div class="verdict-chip v-pass"><span class="v-label">PASS</span><span class="v-count">${(r||'').trim()}</span></div>`);
+  html = html.replace(/[-•·*]\s*PROCEED WITH CAUTION[:\s]*(\d+[^<\n]*)?/gi, (m,r) =>
+    `<div class="verdict-chip v-caution"><span class="v-label">PROCEED WITH CAUTION</span><span class="v-count">${(r||'').trim()}</span></div>`);
+
+  // Bullets
+  html = html.replace(/^[•·]\s+(.+)$/gm, '<li>$1</li>');
+  html = html.replace(/^-\s+(?!PURSUE|PASS|PROCEED)(.+)$/gm, '<li>$1</li>');
+  html = html.replace(/(<li>[\s\S]*?<\/li>)(\s*<li>[\s\S]*?<\/li>)*/g, m => `<ul>${m}</ul>`);
+  html = html.replace(/<\/ul>\s*<ul>/g, '');
+
+  // Verdict row wrapper
+  html = html.replace(/(<div class="verdict-chip[^"]*"[^>]*>[\s\S]*?<\/div>\s*)+/g,
+    m => `<div class="verdict-row">${m}</div>`);
+
+  // Recommendation box
+  html = html.replace(/<h2>RECOMMENDATION<\/h2>([\s\S]*?)(?=<h2>|$)/gi,
+    (m, c) => `<h2>RECOMMENDATION</h2><div class="rec-box"><div class="rec-box-label">Council Recommendation</div>${c}</div>`);
+
+  // Paragraphs
+  const lines = html.split('\n');
+  let result = '';
+  lines.forEach(line => {
+    line = line.trim();
+    if (!line) return;
+    if (/^<[hud\/]/.test(line)) result += line + '\n';
+    else result += `<p>${line}</p>\n`;
+  });
+
+  document.getElementById('docBody').innerHTML = result;
+}
+
+async function submitQuestion() {
+  const q = document.getElementById('question').value.trim();
+  if (!q) { document.getElementById('question').focus(); return; }
+
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('briefWrap').classList.remove('visible');
+  document.getElementById('statusBar').classList.add('visible');
+
+  agents.forEach(a => {
+    document.getElementById('dot-' + a).className = 'card-dot';
+    document.getElementById('card-' + a).classList.remove('active-card');
+  });
+
+  startTimer();
+  startAgentAnimation();
+
+  try {
+    const res = await fetch(WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q })
+    });
+
+    const raw = await res.text();
+    stopAnimation();
+    document.getElementById('statusBar').classList.remove('visible');
+
+    let brief = raw;
+    try {
+      const json = JSON.parse(raw);
+      brief = json.text || json.brief || json.content || raw;
+    } catch(e) {}
+
+    const now = new Date();
+    document.getElementById('docDate').textContent =
+      now.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+    document.getElementById('docFooterTime').textContent =
+      `Generated ${now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'})} · ${timerSec}s`;
+
+    parseAndRender(brief);
+    document.getElementById('briefWrap').classList.add('visible');
+    document.getElementById('submitBtn').disabled = false;
+
+    setTimeout(() => {
+      document.getElementById('briefWrap').scrollIntoView({ behavior:'smooth', block:'start' });
+    }, 100);
+
+  } catch(err) {
+    stopAnimation();
+    document.getElementById('statusBar').classList.remove('visible');
+    document.getElementById('docBody').innerHTML =
+      '<p style="color:#b01c1c">Connection error — verify the workflow is active and try again.</p>';
+    document.getElementById('briefWrap').classList.add('visible');
+    document.getElementById('submitBtn').disabled = false;
+  }
+}
+
+function resetForm() {
+  document.getElementById('briefWrap').classList.remove('visible');
+  document.getElementById('question').value = '';
+  agents.forEach(a => {
+    document.getElementById('dot-' + a).className = 'card-dot';
+    document.getElementById('card-' + a).classList.remove('active-card');
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => document.getElementById('question').focus(), 400);
+}
+
+document.getElementById('question').addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') submitQuestion();
+});
+</script>
+</body>
+</html>
